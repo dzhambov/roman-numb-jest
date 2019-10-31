@@ -7,7 +7,7 @@ function romanSplit(number) {
 
   for (i=0; i < number.length; i++) {
 
-    number[i] = romanDigit(number[i], i);
+    number[i] = romanDigit(number[i], i                                 );
   }
   return number.reverse().join(" ");
 }
