@@ -2,37 +2,35 @@ var romanNums = ['I','V','X','L','C','D','M']
 
 function romanSplit(number) {
   number = number.split("");
-  console.log(number);
   number.reverse();
-  console.log(number)
 
   for (i=0; i < number.length; i++) {
-    console.log(i);
-    number[i] = romanDigit(number[i]);
 
+    number[i] = romanDigit(number[i], i);
   }
-  return number;
+  return number.reverse().join(" ");
 }
 
 
-var romanDigit = function(digit){
+var romanDigit = function(digit, r){
   var digitOutput = "";
   digit = parseInt(digit);
+  r = (r+1)*2;
   if (digit === 9) {
-    digitOutput = 'I' + 'X';
+    digitOutput = romanNums[r-2] + romanNums[r];
   }
   else if (digit > 3) {
-    digitOutput += 'V';
+    digitOutput += romanNums[r-1];
     if (digit > 4) {
       for (j=0; j < digit - 5; j++){
-        digitOutput += 'I';
+        digitOutput += romanNums[r-2];
       }
     } else {
-      digitOutput = 'I' + digitOutput;
+      digitOutput = romanNums[r-2] + digitOutput;
     }
   } else {
     for (k=0; k < digit; k++) {
-      digitOutput += 'I';
+      digitOutput += romanNums[r-2];
     }
   }
   return digitOutput;
