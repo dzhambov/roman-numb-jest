@@ -1,3 +1,18 @@
+var romanNums = ['I','V','X','L','C','D','M']
+
+function romanSplit(number) {
+  number = number.split("");
+  console.log(number);
+  number.reverse();
+  console.log(number)
+
+  for (i=0; i < number.length; i++) {
+    console.log(i);
+    number[i] = romanDigit(number[i]);
+
+  }
+  return number;
+}
 
 
 var romanDigit = function(digit){
@@ -16,7 +31,7 @@ var romanDigit = function(digit){
       digitOutput = 'I' + digitOutput;
     }
   } else {
-    for (i=0; i < digit; i++) {
+    for (k=0; k < digit; k++) {
       digitOutput += 'I';
     }
   }
@@ -33,7 +48,11 @@ var romanDigit = function(digit){
     $('#romanForm').submit(function(event){
       event.preventDefault();
       var input = $('#romanInput').val();
-      console.log(romanDigit(input))
-      $('output').text(romanDigit(input));
+
+      // romanSplit(input);
+      console.log(romanSplit(input));
+
+      // console.log(romanDigit(input))
+      // $('output').text(romanDigit(input));
     })
   });
