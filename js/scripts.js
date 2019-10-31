@@ -1,5 +1,6 @@
 var romanNums = ['I','V','X','L','C','D','M']
 
+//Operates on & splits a number
 function romanSplit(number) {
   number = number.split("");
   number.reverse();
@@ -10,8 +11,7 @@ function romanSplit(number) {
   }
   return number.reverse().join(" ");
 }
-
-
+//Operates on a single digit
 var romanDigit = function(digit, r){
   var digitOutput = "";
   digit = parseInt(digit);
@@ -35,22 +35,11 @@ var romanDigit = function(digit, r){
   }
   return digitOutput;
 }
-
-
-
-
-
-
-
   $(document).ready(function(){
     $('#romanForm').submit(function(event){
       event.preventDefault();
       var input = $('#romanInput').val();
-
-      // romanSplit(input);
       console.log(romanSplit(input));
-
-      // console.log(romanDigit(input))
-      // $('output').text(romanDigit(input));
+      $('#output').text(input +' as a Roman Numeral is ' + romanSplit(input));
     })
   });
