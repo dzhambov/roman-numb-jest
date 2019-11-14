@@ -1,3 +1,7 @@
+
+export function romanNums(input);
+
+
 var romanNums = ['I','V','X','L','C','D','M']
 
 //Operates on & splits a number
@@ -35,11 +39,3 @@ var romanDigit = function(digit, r){
   }
   return digitOutput;
 }
-  $(document).ready(function(){
-    $('#romanForm').submit(function(event){
-      event.preventDefault();
-      var input = $('#romanInput').val();
-      console.log(romanSplit(input));
-      $('#output').text(input +' as a Roman Numeral is ' + romanSplit(input));
-    })
-  });
